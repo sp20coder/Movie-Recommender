@@ -22,13 +22,8 @@ def get_recommendations(movie_id_from_db,movie_db):
             response.append({
                 'movie_title':output['title'].iloc[i],
                 'movie_release_date':output['release_date'].iloc[i],
-                if pd.notna(output['main_director'].iloc[i]) and pd.notna(output['title'].iloc[i]) and pd.notna(output['release_date'].iloc[i]):
-    movie_director = output['main_director'].iloc[i]
-    google_link = "https://www.google.com/search?q=" + '+'.join(output['title'].iloc[i].strip().split()) + " (" + output['release_date'].iloc[i].split("-")[0]+")"
-else:
-    movie_director = None
-    google_link = None
-
+                'movie_director':output['main_director'].iloc[i],
+                'google_link':"https://www.google.com/search?q=" + '+'.join(output['title'].iloc[i].strip().split()) + " (" + output['release_date'].iloc[i].split("-")[0]+")"
             })
         return response
     except Exception as e:
