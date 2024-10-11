@@ -22,9 +22,9 @@ def get_recommendations(movie_id_from_db,movie_db):
             response.append({
                 'movie_title':output['title'].iloc[i],
                 'movie_release_date':output['release_date'].iloc[i],
-                'movie_director':output['main_director'].iloc[i],
+                'movie_director':output['main_director'].iloc[i], //Display of name of director overviewing the Imdb panel Linkage
                 'google_link':"https://www.google.com/search?q=" + '+'.join(output['title'].iloc[i].strip().split()) + " (" + output['release_date'].iloc[i].split("-")[0]+")"
-            })
+            }) // established connection 
         return response
     except Exception as e:
         print("error: ",e)
